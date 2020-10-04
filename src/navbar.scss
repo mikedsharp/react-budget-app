@@ -1,0 +1,35 @@
+nav {
+  *,
+  *:before,
+  *::after {
+    box-sizing: border-box;
+  }
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: white;
+  /*Nav links*/
+  a,
+  h3 {
+    text-decoration: none;
+    color: white;
+    &:visited,
+    &:active {
+      color: white;
+    }
+    &:hover {
+    }
+  }
+  ul {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      margin: 10px;
+    }
+  }
+}
