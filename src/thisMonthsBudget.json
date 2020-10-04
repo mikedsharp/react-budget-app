@@ -1,0 +1,29 @@
+{
+  "name": "October 2020",
+  "expenses": {
+    "fixed": [
+      {
+        "name": "Rent",
+        "amount": 500,
+        "category": ""
+      }
+    ],
+    "variable": [
+      {
+        "name": "New monitor",
+        "amount": 444.44,
+        "category": "purchase"
+      }
+    ]
+  },
+  "inflows": [
+    {
+      "name": "pay",
+      "amount": 666.66
+    },
+    {
+      "name": "carry over from last month",
+      "amount": 55.23
+    }
+  ]
+}
