@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./DashboardView.scss";
 const DashboardView = () => {
-  const [currentBudget, setBudget] = useState({
+  const [currentBudget] = useState({
     name: "October 2020",
     expenses: {
       fixed: [
