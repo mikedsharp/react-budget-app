@@ -12,37 +12,35 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <nav>
-            <Link to="/">
-              {" "}
-              <h3>Mikes&apos; Money Manager</h3>
-            </Link>
-            <ul>
-              <li>
-                <Link to="/">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/budget/create">Create Budget</Link>
-              </li>
-              <li>
-                <Link to="/budgets">Past Budgets</Link>
-              </li>
-            </ul>
-          </nav>
-          <Switch>
-            <Route path="/budget/create">
-              <BudgetFormView />
-            </Route>
-            <BudgetDetailView path="/budget/:id" />
-            <Route path="/budgets">
-              <BudgetHistoryView />
-            </Route>
-            <Route path="/">
-              <DashboardView />
-            </Route>
-          </Switch>
-        </div>
+        <nav>
+          <Link to="/">
+            {" "}
+            <h3>Mikes&apos; Money Manager</h3>
+          </Link>
+          <ul>
+            <li>
+              <Link to="/">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/budget/create">Create Budget</Link>
+            </li>
+            <li>
+              <Link to="/budgets">Past Budgets</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/budget/create">
+            <BudgetFormView />
+          </Route>
+          <BudgetDetailView path="/budget/:id" />
+          <Route path="/budgets">
+            <BudgetHistoryView />
+          </Route>
+          <Route path="/">
+            <DashboardView />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

@@ -1,0 +1,15 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body,
+#root,
+.App {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
