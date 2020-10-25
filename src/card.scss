@@ -4,10 +4,22 @@
   align-items: center;
   overflow: auto;
   flex: 1;
+  padding: 10px;
+  &.no-budgets {
+    padding: 50px;
+  }
   .card {
     height: 33vh;
     width: 100%;
-    margin: 10px;
     padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    &.Positive {
+      background-color: lightgreen;
+    }
+    &.Negative {
+      background-color: lightcoral;
+    }
   }
 }
