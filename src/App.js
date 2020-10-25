@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardView from "./DashboardView";
 import BudgetHistoryView from "./BudgetHistoryView";
-import BudgetCreateView from "./BudgetCreateView";
+import BudgetFormView from "./BudgetFormView";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
@@ -32,7 +32,7 @@ function App() {
           </nav>
           <Switch>
             <Route path="/budget/create">
-              <BudgetCreateView />
+              <BudgetFormView />
             </Route>
             <BudgetDetailView path="/budget/:id" />
             <Route path="/budgets">

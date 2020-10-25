@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { calculateSum } from "./budgetHelpers";
+import SumComponent from "./SumComponent";
 import "./DashboardView.scss";
 const DashboardView = () => {
   const [currentBudget, setBudget] = useState();
@@ -25,48 +26,19 @@ const DashboardView = () => {
     setBudget(loadedBudget);
   }
 
-  function calulateTotalFixedInflows(inflows) {
-    if (inflows.length === 0) {
-      return 0;
-    }
-    if (inflows.length === 1) {
-      return inflows[0].amount;
-    }
-    return inflows.reduce((prev, curr) => prev.amount + curr.amount);
-  }
-  function calulateTotalFixedOutflows(outflows) {
-    if (outflows.length === 0) {
-      return 0;
-    }
-    if (outflows.length === 1) {
-      return outflows[0].amount;
-    }
-    return outflows.reduce((prev, curr) => prev.amount + curr.amount);
-  }
-  function calulateTotalSpendingOutflows(outflows) {
-    if (outflows.length === 0) {
-      return 0;
-    }
-    if (outflows.length === 1) {
-      return outflows[0].amount;
-    }
-    return outflows.reduce((prev, curr) => prev.amount + curr.amount);
-  }
   function calculateTotalOutflows(expenseObject) {
     return (
-      calulateTotalSpendingOutflows(expenseObject.variable) +
-      calulateTotalFixedOutflows(expenseObject.fixed)
+      calculateSum(expenseObject.variable) + calculateSum(expenseObject.fixed)
     );
   }
-  function calculateCashFlow(budget) {
-    const fixedExpenses = calulateTotalFixedOutflows(budget.expenses.fixed);
-    const variableExpenses = calulateTotalSpendingOutflows(
-      budget.expenses.variable
-    );
-    const inflows = calulateTotalFixedInflows(budget.inflows);
 
+  function calculateCashFlow(budget) {
+    const fixedExpenses = calculateSum(budget.expenses.fixed);
+    const variableExpenses = calculateSum(budget.expenses.variable);
+    const inflows = calculateSum(budget.inflows);
     return Number(inflows - fixedExpenses - variableExpenses);
   }
+
   function goToBudgetDetail(budgetId) {
     history.push(`/budget/${budgetId}`);
   }
@@ -85,7 +57,6 @@ const DashboardView = () => {
       <div>
         <h1>
           No budget has been create for this month,{" "}
-          {/* <Link to="/budget/create">Create one?</Link> */}
           <button onClick={() => createBlankBudget()}>Create one?</button>
         </h1>
       </div>
@@ -93,20 +64,12 @@ const DashboardView = () => {
   }
   return (
     <div className="DashboardView">
-      <h1>Budget summary for {`${now.getMonth() + 1}-${now.getFullYear()}`}</h1>
+      <h1>Budget summary for {currentBudget.name}</h1>
       <h2>Income</h2>
-      <h4>
-        Total inflows: £{calulateTotalFixedInflows(currentBudget.inflows)}
-      </h4>
+      {SumComponent("Total inflows", currentBudget.inflows)}
       <h2>Outgoings</h2>
-      <h4>
-        Total fixed outflows: £
-        {calulateTotalFixedOutflows(currentBudget.expenses.fixed)}
-      </h4>
-      <h4>
-        Total spending outflows : £
-        {calulateTotalSpendingOutflows(currentBudget.expenses.variable)}
-      </h4>
+      {SumComponent("Total fixed outflows", currentBudget.expenses.fixed)}
+      {SumComponent("Total spending outflows", currentBudget.expenses.variable)}
       <h4>Total outflows: £{calculateTotalOutflows(currentBudget.expenses)}</h4>
       <h2>Cash flow status</h2>
       <h4>

@@ -1,6 +1,6 @@
 import React from "react";
-const BudgetCreateView = () => {
+const BudgetFormView = () => {
   return <div>Create budget view</div>;
 };
 
-export default BudgetCreateView;
+export default BudgetFormView;
