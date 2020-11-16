@@ -21,7 +21,9 @@
     "jest/valid-expect": "error",
     "testing-library/await-async-query": "error",
     "testing-library/no-await-sync-query": "error",
-    "testing-library/no-debug": "warn"
+    "testing-library/no-debug": "warn",
+    "react/display-name": 1,
+    "no-debugger": 0
   },
   "plugins": ["react", "import", "jsx-a11y", "react-hooks", "jest", "testing-library"],
   "parser": "babel-eslint",
