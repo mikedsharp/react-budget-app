@@ -25,3 +25,5 @@ yarn-error.log*
 debug.log
 
 src/index.css
+/src/index.css
+index.css
