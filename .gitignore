@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/app/src/index.css
 # dependencies
 /node_modules
 /.pnp
@@ -21,6 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
 debug.log
-src/index.css
+
