@@ -11,19 +11,19 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <Link to="/">
+        <nav className="p-2 flex bg-black text-white flex-row items-center justify-between">
+          <Link className="block" to="/">
             {" "}
             <h3>Mikes&apos; Money Manager</h3>
           </Link>
-          <ul>
-            <li>
+          <ul className="block">
+            <li className="inline p-2">
               <Link to="/">Dashboard</Link>
             </li>
-            <li>
+            <li className="inline p-2">
               <Link to="/budget/create">Create Budget</Link>
             </li>
-            <li>
+            <li className="inline p-2">
               <Link to="/budgets">Past Budgets</Link>
             </li>
           </ul>
