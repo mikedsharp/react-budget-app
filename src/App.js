@@ -5,8 +5,6 @@ import BudgetFormView from "./BudgetFormView";
 import "tailwindcss/tailwind.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "./App.css";
-import "./navbar.scss";
 import BudgetDetailView from "./BudgetDetailView";
 
 function App() {

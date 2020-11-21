@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { calculateSum } from "./budgetHelpers";
 import SumComponent from "./SumComponent";
-import "./DashboardView.scss";
+
 const DashboardView = () => {
   const [currentBudget, setBudget] = useState();
   const history = useHistory();

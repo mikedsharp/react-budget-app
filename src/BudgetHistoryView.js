@@ -1,4 +1,3 @@
-import "./card.scss";
 // import { calculateSum } from "./budgetHelpers";
 import React, { useState, useEffect } from "react";
 
